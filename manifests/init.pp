@@ -37,9 +37,11 @@
 #
 class windows_burp {
 
-  case $::osfamily {
-    windows:{
-      class { 'windows_burp::package': }
-    }
+  if $operatingsystem == 'Windows {
+    class { 'windows_burp::package': }
   }
+  else {
+    warning( 'This module only works on Windows. If you are using Linux, try the puppet-burp module.' )
+  }
+
 }
