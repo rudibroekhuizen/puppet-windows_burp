@@ -37,5 +37,9 @@
 #
 class windows_burp {
 
-
+  case $::osfamily {
+    windows:{
+      class { 'windows_burp::package': }
+    }
+  }
 }
