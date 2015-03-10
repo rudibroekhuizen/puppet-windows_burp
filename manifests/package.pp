@@ -1,4 +1,4 @@
-Class: windows_burp::package
+# Class: windows_burp::package
 #
 #
 class windows_burp::package {
