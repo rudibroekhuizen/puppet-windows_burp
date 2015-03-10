@@ -12,7 +12,7 @@ class windows_burp::package {
     }
   }
 
-  download_file { "burp-${bit}-installer-1.4.32.exe":
+  download_file { "burp":
     url                   => 'http://downloads.sourceforge.net/project/burp/burp-1.4.32/burp-${bit}-installer-1.4.32.exe',
     destination_directory => 'c:\temp'
   }
@@ -21,7 +21,7 @@ class windows_burp::package {
     source  => 'c:\temp\burp-${bit}-installer-1.4.32.exe',
     ensure  => present,
     install_options => ['/S'],
-    require => Download_file [ 'burp-${bit}-installer-1.4.32.exe' ],
+    require => Download_file [ 'burp' ],
   }
 
 }
