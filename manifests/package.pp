@@ -11,6 +11,7 @@ class windows_burp::package {
   package { 'burp':
     source  => 'c:\temp\burp-win64-installer-1.4.32.exe',
     ensure  => present,
+    install_options => ['/S'],
     require => Download_file [ 'burp-win64-installer-1.4.32.exe' ],
   }
 
