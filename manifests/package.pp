@@ -7,7 +7,7 @@ class windows_burp::package {
     'x64': { 
       $bit = 'win64'
     }
-    '32': {
+    'x86': {
       $bit = 'win32'
     }
   }
