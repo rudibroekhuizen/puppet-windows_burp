@@ -37,7 +37,7 @@
 #
 class windows_burp {
 
-  if $operatingsystem == 'Windows {
+  if $operatingsystem == 'Windows' {
     class { 'windows_burp::package': }
   }
   else {
