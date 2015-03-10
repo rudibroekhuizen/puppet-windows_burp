@@ -8,4 +8,10 @@ class windows_burp::package {
     destination_directory => 'c:\temp'
   }
 
+  package { 'burp':
+    source  => 'c:\temp\burp-win64-installer-1.4.32.exe',
+    ensure  => present,
+    require => Download_file [ 'burp-win64-installer-1.4.32.exe' ],
+  }
+
 }
