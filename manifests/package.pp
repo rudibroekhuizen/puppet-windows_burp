@@ -6,10 +6,10 @@ class windows_burp::package {
   case $architecture {
     'x64': { 
       $bit = 'win64'
-	  }
+    }
     '32': {
-  	  $bit = 'win32'
-  	}
+    	$bit = 'win32'
+    }
   }
 
   download_file { "burp-${bit}-installer-1.4.32.exe":
