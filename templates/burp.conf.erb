@@ -22,7 +22,7 @@ ca_csr_dir = C:/Program Files/Burp/CA
 ssl_cert_ca = C:/Program Files/Burp/ssl_cert_ca.pem
 ssl_cert = C:/Program Files/Burp/ssl_cert-client.pem
 ssl_key = C:/Program Files/Burp/ssl_cert-client.key
-ssl_key_password = password
+ssl_key_password = <%= scope['windows_burp::ssl_key_password'] %>
 ssl_peer_cn = burpserver
 server_can_restore = 1
 split_vss = <%= scope['windows_burp::split_vss'] %>
