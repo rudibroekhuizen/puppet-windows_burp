@@ -35,7 +35,17 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class windows_burp {
+class windows_burp (
+  $client                  = true,
+  $client_ssl_key_password = "ssl_key_password",
+  $client_extra_options    = [ 'ratelimit=10', 'vss_drives=0' ],
+  $password                = "password",
+  $server_ip               = "172.16.3.13",
+  $cname                   = $fqdn,
+  $server_can_restore      = "1",
+  $includes                = [ '/home', '/var/log' ],
+  $excludes                = [ '/home/ubuntu' ],{
+) {
 
   if $operatingsystem == 'Windows' {
     class { 'windows_burp::package': }
