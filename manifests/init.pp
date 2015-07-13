@@ -36,15 +36,26 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class windows_burp (
-  $client                  = true,
-  $client_ssl_key_password = "ssl_key_password",
-  $client_extra_options    = [ 'ratelimit=10', 'vss_drives=0' ],
-  $password                = "password",
-  $server_ip               = "172.16.3.13",
-  $cname                   = $fqdn,
-  $server_can_restore      = "1",
-  $includes                = [ '/home', '/var/log' ],
-  $excludes                = [ '/home/ubuntu' ],{
+  $burp_hash = { 'server'             => { value => '172.16.1.1',
+                                         },
+                 'ssl_key_password'   => { value => 'password',
+                                         },
+                 'password'           => { value => 'password',
+                                         },
+                 'cname'              => { value => 'localhost',
+                                         },
+                 'server_can_restore' => { value => '1',
+                                         },
+                 'include'            => { value   => '/home',
+                                           section => '/home',
+                                         },
+                 'exclude'            => { value   => '/home/ubuntu',
+                                           section => '/home/ubuntu',
+                                         },
+                 'include'            => { value   => '/etc/NetworkManager/system-connections',
+                                           section => '/etc/NetworkManager/system-connections',
+                                         },
+               },
 ) {
 
   if $operatingsystem == 'Windows' {
