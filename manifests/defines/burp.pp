@@ -10,7 +10,6 @@ define windows_burp::defines::burp (
     ensure         => present,
     path           => "C:/Program Files/Burp/burp.conf",
     section_prefix => '#[',
-    #section_suffix => '',
   }
   
   ini_setting { "C:/Program Files/Burp/burp.conf_${title}":
