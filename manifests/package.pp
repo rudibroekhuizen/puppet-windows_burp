@@ -12,12 +12,12 @@ class windows_burp::package {
     }
   }
 
-  download_file { "burp-${bit}-installer-1.4.32.exe":
+  download_file { "burp-${bit}-installer-1.4.38.exe":
     url                   => "http://burp.grke.org/downloads/burp-1.4.38/burp-${bit}-installer-1.4.38.exe",
     destination_directory => 'c:/temp'
   }
 
-  package { "burp-${bit}-installer-1.4.32.exe":
+  package { "burp-${bit}-installer-1.4.38.exe":
     source          => "c:/temp/burp-${bit}-installer-1.4.38.exe",
     ensure          => present,
     install_options => ['/S'],
