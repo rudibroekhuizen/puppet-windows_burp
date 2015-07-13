@@ -13,7 +13,7 @@ define windows_burp::defines::burp (
     section_suffix => '',
   }
   
-  ini_setting { "C:/Program Files/Burp/burp.conf_${section}":
+  ini_setting { "C:/Program Files/Burp/burp.conf_${title}":
     setting => $title,
     value   => $value,
     section => $section
