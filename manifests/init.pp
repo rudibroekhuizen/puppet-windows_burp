@@ -60,7 +60,7 @@ class windows_burp (
 ) {
 
   if $operatingsystem == 'Windows' {
-    class { 'windows_burp::package': }
+    class { 'windows_burp::package': } -> class { 'windows_burp::client': }
   }
   else {
     warning( 'This module only works on Windows. If you are using Linux, try the puppet-burp module.' )
