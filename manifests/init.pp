@@ -36,19 +36,35 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class windows_burp (
-  $client                  = true,
-  $client_ssl_key_password = "ssl_key_password",
-  $client_extra_options    = [ 'ratelimit=10', 'vss_drives=0' ],
-  $password                = "password",
-  $server_ip               = "172.16.3.13",
-  $cname                   = $fqdn,
-  $server_can_restore      = "1",
-  $includes                = [ '/home', '/var/log' ],
-  $excludes                = [ '/home/ubuntu' ],{
+  $version   = '1.4.38',
+  $burp_hash = { 'server'             => { value => '172.16.1.1',
+                                         },
+                 'ssl_key_password'   => { value => 'password',
+                                         },
+                 'password'           => { value => 'password',
+                                         },
+                 'cname'              => { value => 'client-001',
+                                         },
+                 'server_can_restore' => { value => '1',
+                                         },
+                 'include'            => { value   => 'C:/Program Files/Burp/burp.conf',
+                                           section => 'C:/Program Files/Burp/burp.conf',
+                                         },
+                #'exclude'            => { value   => '/home/ubuntu',
+                #                          section => '/home/ubuntu',
+                #                        },
+                #'include'            => { value   => '/etc/NetworkManager/system-connections',
+                #                          section => '/etc/NetworkManager/system-connections',
+                #                        },
+               },
 ) {
 
   if $operatingsystem == 'Windows' {
-    class { 'windows_burp::package': }
+    class { 'windows_burp::package':
+    } 
+    class { 'windows_burp::client': 
+      require => Class['windows_burp::package']
+    }
   }
   else {
     warning( 'This module only works on Windows. If you are using Linux, try the puppet-burp module.' )

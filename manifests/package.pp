@@ -12,16 +12,16 @@ class windows_burp::package {
     }
   }
 
-  download_file { "burp-${bit}-installer-1.4.32.exe":
-    url                   => "http://downloads.sourceforge.net/project/burp/burp-1.4.32/burp-${bit}-installer-1.4.32.exe",
+  download_file { "burp-${bit}-installer-${windows_burp::version}.exe":
+    url                   => "http://burp.grke.org/downloads/burp-${windows_burp::version}/burp-${bit}-installer-${windows_burp::version}.exe",
     destination_directory => 'c:/temp'
   }
 
-  package { "burp-${bit}-installer-1.4.32.exe":
-    source          => "c:/temp/burp-${bit}-installer-1.4.32.exe",
+  package { "burp-${bit}-installer-${windows_burp::version}.exe":
+    source          => "c:/temp/burp-${bit}-installer-${windows_burp::version}.exe",
     ensure          => present,
     install_options => ['/S'],
-    require         => Download_file [ "burp-${bit}-installer-1.4.32.exe" ],
+    require         => Download_file [ "burp-${bit}-installer-${windows_burp::version}.exe" ],
   }
 
 }
