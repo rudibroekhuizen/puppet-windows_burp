@@ -65,4 +65,4 @@ class windows_burp (
     warning( 'This module only works on Windows. If you are using Linux, try the puppet-burp module.' )
   }
 
-}
+}#
