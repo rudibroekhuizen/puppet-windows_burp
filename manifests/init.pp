@@ -54,10 +54,10 @@ class windows_burp (
                },
 ) {
 
-  if $operatingsystem == 'Windows' {
+  if $::operatingsystem == 'Windows' {
     class { 'windows_burp::package':
-    } 
-    class { 'windows_burp::client': 
+    }
+    class { 'windows_burp::client':
       require => Class['windows_burp::package']
     }
   }

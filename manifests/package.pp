@@ -3,8 +3,8 @@
 #
 class windows_burp::package {
 
-  case $architecture {
-    'x64': { 
+  case $::architecture {
+    'x64': {
       $bit = 'win64'
     }
     'x86': {
@@ -18,8 +18,8 @@ class windows_burp::package {
   }
 
   package { "burp-${bit}-installer-${windows_burp::version}.exe":
-    source          => "c:/temp/burp-${bit}-installer-${windows_burp::version}.exe",
     ensure          => present,
+    source          => "c:/temp/burp-${bit}-installer-${windows_burp::version}.exe",
     install_options => ['/S'],
     require         => Download_file [ "burp-${bit}-installer-${windows_burp::version}.exe" ],
   }
