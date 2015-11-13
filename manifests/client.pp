@@ -3,8 +3,8 @@
 class windows_burp::client {
 
   $burp_hash_defaults = { 'path'           => 'C:/Program Files/Burp/burp.conf',
-                          'section_prefix' => '#['
-            	          },
+                          'section_prefix' => '#[',
+            	          }
 
   # Set settings in C:/Program Files/Burp/burp.conf
   create_ini_settings($windows_burp::burp_hash, $burp_hash_defaults)
