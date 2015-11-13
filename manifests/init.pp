@@ -37,9 +37,6 @@
 #
 class windows_burp (
   $version   = '1.4.38',
-  $burp_hash_defaults = { 'path'           => 'C:/Program Files/Burp/burp.conf'
-                          'section_prefix' => '#[',
-	            	},
   $burp_hash = { 'server'             => { value => '172.16.1.1',
                                          },
                  'ssl_key_password'   => { value => 'password',
