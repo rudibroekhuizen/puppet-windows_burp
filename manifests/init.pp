@@ -36,7 +36,7 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class windows_burp (
-  $version   = '1.4.38',
+  $version   = '1.4.40',
   $burp_hash = { 'server'             => { value => '172.16.1.1',
                                          },
                  'ssl_key_password'   => { value => 'password',
